@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ</title>
+<style type="text/css">
+body,div,ul,li,img,span,em,h3,textarea,input,p{margin: 0;padding:0;}
+li {list-style: none;}
+em {font-style: normal;}
+h3 {font-weight: normal;}
+body{
+	font-size: 14px;
+	font-family: '微软雅黑';
+	background:url(img/bg.jpg);
+	background-color: rgba(255,255,255,0.3);
+	background-size: cover;
+}
+#qqList {
+	width: 290px;
+	height: 560px;
+	box-shadow: 3px 3px 5px #ccc;
+	padding-top: 50px;
+	background-color: rgba(255,255,255,0.3);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#show{
+	height: 150px;
+	position: relative;
+}
+#show div{
+	float: left;
+	margin-left: 10px;
+}
+#head{
+	border-radius: 50%;
+	vertical-align: middle;
+	float: left;
+}
+#show span{
+	font-size: 16px;
+	font-weight: bold;
+	font-family: '幼圆';
+	line-height: 20px;
+}
+#show em{
+	line-height: 20px;
+}
+#show input{
+	width: 290px;
+	height: 30px;
+	border: none;
+	background-color:transparent;
+	position: absolute;
+	bottom: 36px;
+	left: 0;
+}
+#show_nav{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+#list {width:290px;}
+#list h3 {height:24px; line-height:24px; padding-left:20px;font-size: 14px;}
+#list h3 img{width: 24px;vertical-align: middle;}
+.lis{display:none;}
+.lis li {line-height:24px; text-indent:30px; }
+.active{background-color:#F0F0F0}
+/* 聊天面板的样式 */
+#chat{
+	width: 600px;
+	height: 560px;
+	box-shadow: 3px 3px 5px #ccc;
+	background-color: rgba(255,255,255,0.3);
+	position: absolute;
+	top: 60px;
+	left: 360px;
+}
+#info{
+	height: 82px;
+	padding-top: 10px;
+	padding-left: 10px;
+	position: relative;
+}
+#info_head{
+	width: 32px;
+	border-radius: 50%;
+	vertical-align: middle;
+	float: left;
+}
+#info_nav{
+	position: absolute;
+	bottom: 0;
+	left: 12px;
+}
+#info div{
+	float: left;
+	margin-left: 10px;
+	line-height: 32px;
+	font-size: 16px;
+	font-weight: bold;
+}
+#info em{
+	display: block;
+	width: 40px;
+	height: 24px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 24px;
+	background: #F8F5EF;
+	color: #F6C4B6;
+	position: absolute;
+	top: 0;
+	right:0;
+}
+#panel{
+	height: 340px;
+	overflow: auto;
+}
+#panel p{
+	margin: 14px 10px;
+}
+#panel img{
+	width: 32px;
+	border-radius: 50%;
+	position: relative;
+	top: 0;
+}
+#panel span{
+	display: block;
+	width: 500px;
+	position: relative;
+	left: 42px;
+}
+#send{
+	height: 128px;
+	position: relative;
+}
+#send textarea{
+	width: 598px;
+	height: 126px;
+	font-family: '微软雅黑';
+	background-color:transparent;
+}
+#send img{
+	width: 42px;
+	position: absolute;
+	bottom: 1px; 
+	right: 61px;
+}
+#send input{
+	width: 60px;
+	height: 24px;
+	position: absolute;
+	right: 1px;
+	bottom: 1px;
+	border: none;
+	font-family: '微软雅黑';
+}
+.left {
+	text-align:left;
+}
+.right {
+	text-align:right;
+}
+</style>
+<script src="jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<div id="qqList">
+	<div id="show">
+		<img id="head" src="img/lswl.png" />
+		<div>
+			<span>朝夕</span><br />
+			<em>一万年太久，只争朝夕。</em>
+		</div>
+		<input type="text" name="search" placeholder="  搜索">
+		<img id="show_nav" src="img/show_nav.png">
+	</div>
+	<ul id='list'>
+		<li>
+	    	<h3>独家记忆*最</h3>
+	        <ul class = 'lis'> 
+	            <li>老爸</li>
+	            <li>老妈</li>
+	        	<li>老姐</li>
+	        	<li>健健</li>
+	        </ul>
+	    </li>
+	    <li>
+	    	<h3>独家记忆*醉</h3>
+	        <ul class = 'lis'>
+	        	<li>苗林</li>
+	            <li>思思</li>
+	            <li>锐哥</li>
+	            <li>倩</li>
+	        </ul>
+	    </li>
+	    <li>
+	    	<h3>独家记忆*青志</h3>
+	        <ul class = 'lis'>
+	        	<li>单锅锅</li>
+	            <li>小学妹</li>
+	        </ul>
+	    </li>
+	</ul>
+</div>
+<div id="chat">
+    <div id="info">
+		<img id="info_head" src="img/syqr.png" />
+		<div>
+			<span>健健</span>
+		</div>
+		<img id="info_nav" src="img/info_nav.png">
+		<em>X</em>
+    </div>
+	<div id="panel"></div>
+	<div id="send">
+		<textarea></textarea>
+		<img id="img" src='img/lswl.png';/>
+		<input id='btn' type='submit' value='发送'/>
+	</div>
+</div>
+<script>
+$(function (){
+	//QQ分组展开收起
+	$('#list').find('h3').each(function(i,elem){
+		$(elem).click(function(){
+			$(this).next().toggle();
+		});
+	});
+	//当前元素高亮
+	$('.lis li').on({
+		'click': function(){$(this).toggleClass('active');},
+		'mouseover': function(){$(this).css('background','#f0f0f0')},
+		'mouseout': function(){$(this).css('background','')}
+	});
+	$('#list h3').on({
+		'mouseover': function(){$(this).css('background','#f0f0f0')},
+		'mouseout': function(){$(this).css('background','')}
+	});
+
+	//头像切换
+	var arrImg = ['img/lswl.png','img/syqr.png'];
+	var num = 0;
+	$('#img').click(function (){
+		num ++;
+		if(num==arrImg.length){
+			num = 0;
+			$('#img').attr('src','img/lswl.png');
+		}else{
+			$('#img').attr('src','img/syqr.png');
+		}
+	});
+
+	//消息发送
+	$('#btn').click(function (){
+		if($('textarea').val() == '') return false;
+		$('<p>').appendTo( $('#panel') );
+
+		if(num==0){
+			$('<span>').appendTo($('p:last'));
+			$('<img src="img/lswl.png">').appendTo($('p:last'));
+			$('p:last').toggleClass('right');
+		}else{
+			$('<img>').appendTo( $('p:last') );
+			$('<span>').appendTo( $('p:last') );
+			$('p:last').addClass('left');
+			$('p:last img').attr('src','img/syqr.png');
+		}
+		$('p:last span').html( $('textarea').val() );
+		$('textarea').val('');
+	});
+
+	//关闭对话窗口
+	$('#info').find('em').on('click',function(){
+		$('#chat').hide();
+	});
+
+	//对话框的拖拽
+	// $('#chat').on('mousedown',function(ev){
+	// 	var disX = ev.pageX - $(this).offset().left;
+	// 	var disY = ev.pageY - $(this).offset().top;
+
+	// 	$(document).on('mousemove',function(ev){
+	// 		$('#chat').css('left', ev.pageX - disX);
+	// 		$('#chat').css('top', ev.pageY - disY);
+	// 	});
+
+	// 	$(document).on('mouseup',function(){
+	// 		$(document).off();
+	// 	})
+	// 	return false;
+	// });
+
+	//QQ列表的拖拽
+	// $('#qqList').on('mousedown',function(ev){
+	// 	var disX = ev.pageX - $(this).offset().left;
+	// 	var disY = ev.pageY - $(this).offset().top;
+
+	// 	$(document).on('mousemove',function(ev){
+	// 		$('#qqList').css('left', ev.pageX - disX);
+	// 		$('#qqList').css('top', ev.pageY - disY);
+	// 	});
+
+	// 	$(document).on('mouseup',function(){
+	// 		$(document).off();
+	// 	})
+	// 	return false;
+	// });
+});
+</script>
+</body>
+</html>
