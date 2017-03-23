@@ -279,36 +279,43 @@ $(function (){
 	});
 
 	//对话框的拖拽
-	// $('#chat').on('mousedown',function(ev){
-	// 	var disX = ev.pageX - $(this).offset().left;
-	// 	var disY = ev.pageY - $(this).offset().top;
+	$('#chat').on('mousedown',function(ev){
+		var disX = ev.pageX - $(this).offset().left;
+		var disY = ev.pageY - $(this).offset().top;
 
-	// 	$(document).on('mousemove',function(ev){
-	// 		$('#chat').css('left', ev.pageX - disX);
-	// 		$('#chat').css('top', ev.pageY - disY);
-	// 	});
+		$(document).on('mousemove',function(ev){
+			//console.log($(window).height()-$('#chat').outerHeight(true));		//这个对话框貌似不管用？
+			if( (ev.pageX - disX)<0 || (ev.pageX - disX)>$(window).width()-$('#chat').width() ) return false;
+			if( (ev.pageY - disY)<0 || (ev.pageY - disY)>78) return false;
+			$('#chat').css('left', ev.pageX - disX);
+			$('#chat').css('top', ev.pageY - disY);
+		});
 
-	// 	$(document).on('mouseup',function(){
-	// 		$(document).off();
-	// 	})
-	// 	return false;
-	// });
+		$(document).on('mouseup',function(){
+			$(document).off();
+		})
+		//return false;
+	});
 
 	//QQ列表的拖拽
-	// $('#qqList').on('mousedown',function(ev){
-	// 	var disX = ev.pageX - $(this).offset().left;
-	// 	var disY = ev.pageY - $(this).offset().top;
+	$('#qqList').on('mousedown',function(ev){
+		var disX = ev.pageX - $(this).offset().left;
+		var disY = ev.pageY - $(this).offset().top;
 
-	// 	$(document).on('mousemove',function(ev){
-	// 		$('#qqList').css('left', ev.pageX - disX);
-	// 		$('#qqList').css('top', ev.pageY - disY);
-	// 	});
+		$(document).on('mousemove',function(ev){
+			//console.log($('#qqList').height());	//560
+			//console.log($('#qqList').outerHeight(true));	//610
+			if( (ev.pageX - disX)<0 || (ev.pageX - disX)>$(window).width()-$('#qqList').width() ) return false;
+			if( (ev.pageY - disY)<0 || (ev.pageY - disY)>$(window).height()-$('#qqList').outerHeight(true) ) return false;
+			$('#qqList').css('left', ev.pageX - disX);
+			$('#qqList').css('top', ev.pageY - disY);
+		});
 
-	// 	$(document).on('mouseup',function(){
-	// 		$(document).off();
-	// 	})
-	// 	return false;
-	// });
+		$(document).on('mouseup',function(){
+			$(document).off();
+		})
+		//return false;
+	});
 });
 </script>
 </body>
